@@ -2,14 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Springboot-Blog</title>
 </head>
-<body>
-    <nav th:fragment="navbar"></nav>
-    <header th:fragment="header">
-        <h1>This is a Header</h1>
-        <h2>Page by Author McWords</h2>
-    </header>
-    <footer th:fragment="footer">Copyright ©2018</footer>
+<body th:fragment="body">
+<nav th:fragment="navbar"></nav>
+<header th:fragment="header-index">
+    <h1>All Posts</h1>
+</header>
+<header th:fragment="header-show">
+    <h1>Single Post</h1>
+</header>
+<footer th:fragment="footer">Sample Copyright: © 2018 Michael Cabeza Enterprises</footer>
 </body>
 </html>
