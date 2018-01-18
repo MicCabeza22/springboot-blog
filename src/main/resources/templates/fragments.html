@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Title</title>
 </head>
 <body>
-    <div th:fragment="roll-one">
-        <p>The dice roll is 1.</p>
-    </div>
+    <nav th:fragment="navbar"></nav>
+    <header th:fragment="header">
+        <h1>This is a Header</h1>
+        <h2>Page by Author McWords</h2>
+    </header>
+    <footer th:fragment="footer">Copyright ©2018</footer>
 </body>
 </html>
