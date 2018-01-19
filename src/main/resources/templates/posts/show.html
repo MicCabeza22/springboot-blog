@@ -3,6 +3,8 @@
 <head th:replace="fragments :: head"/>
 <body>
 <header th:replace="fragments :: header-show"/>
+<h1 th:text="${post.title}"></h1>
+<p th:text="${post.body}"></p>
 <footer th:replace="fragments :: footer"/>
 </body>
 </html>

@@ -21,11 +21,16 @@ public class PostsController {
         List<Post> posts = service.findAll();
 
         model.addAttribute("posts", posts);
+
         return "posts/index";
     }
 
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
-    public String viewIndividualPost(@PathVariable int id) {
+    public String viewIndividualPost(@PathVariable int id, Model model) {
+        Post post = service.findOne(id);
+
+        model.addAttribute("post", post);
+
         return "posts/show";
     }
 
