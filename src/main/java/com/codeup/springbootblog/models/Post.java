@@ -10,6 +10,8 @@ public class Post {
         this.body = body;
     }
 
+    public Post() {}
+
     public int getId() {
         return id;
     }

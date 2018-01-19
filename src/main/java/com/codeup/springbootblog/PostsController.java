@@ -2,6 +2,7 @@ package com.codeup.springbootblog;
 
 import com.codeup.springbootblog.models.Post;
 import com.codeup.springbootblog.services.PostService;
+import javafx.geometry.Pos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,14 +36,16 @@ public class PostsController {
     }
 
     @GetMapping("/posts/create")
-    @ResponseBody
-    public String viewCreatePostForm() {
-        return "This page will contain a form for creating a post.";
+    public String viewCreatePostForm(Model model) {
+        model.addAttribute("post", new Post());
+
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String createNewPost() {
-        return "This page will show a new post.";
+    public String createNewPost(@ModelAttribute Post post) {
+        service.save(post);
+
+        return "posts/index";
     }
 }
