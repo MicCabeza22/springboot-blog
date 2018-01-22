@@ -5,6 +5,7 @@
 <header th:replace="fragments :: header-index"/>
 <nav th:replace="fragments :: navbar"/>
 <form action="/posts/edit" method="post" th:object="${post}">
+    <input type="hidden" th:field="*{id}"/>
     Title:
     <input th:field="*{title}"/>
     <br/>
