@@ -54,4 +54,10 @@ public class PostsController {
         model.addAttribute("post", post);
         return "posts/edit";
     }
+
+    @PostMapping("/posts/edit")
+    public String editPost(@ModelAttribute Post post) {
+        service.edit(post);
+        return "redirect:/posts";
+    }
 }

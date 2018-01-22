@@ -19,10 +19,9 @@ public class PostService {
         return posts;
     }
 
-    public Post save(Post post) {
+    public void save(Post post) {
         post.setId(posts.size() + 1);
         posts.add(post);
-        return post;
     }
 
     public Post findOne(int id) {
@@ -33,5 +32,9 @@ public class PostService {
         save(new Post("Post 1", "This is the first post."));
         save(new Post("Post 2", "This is the second post."));
         save(new Post("Post 3", "This is the third post."));
+    }
+
+    public void edit(Post post) {
+        posts.set(post.getId() - 1, post);
     }
 }
