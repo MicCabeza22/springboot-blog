@@ -2,7 +2,6 @@ package com.codeup.springbootblog;
 
 import com.codeup.springbootblog.models.Post;
 import com.codeup.springbootblog.services.PostService;
-import javafx.geometry.Pos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +45,13 @@ public class PostsController {
     public String createNewPost(@ModelAttribute Post post) {
         service.save(post);
 
-        return "posts/index";
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/posts/{id}/edit")
+    public String viewEditPostForm(@PathVariable int id, Model model) {
+        Post post = service.findOne(id);
+        model.addAttribute("post", post);
+        return "posts/edit";
     }
 }

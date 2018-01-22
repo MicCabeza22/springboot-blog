@@ -4,14 +4,14 @@
 <body>
 <header th:replace="fragments :: header-index"/>
 <nav th:replace="fragments :: navbar"/>
-<form action="/posts/create" method="post" th:object="${post}">
+<form action="/posts/edit" method="post" th:object="${post}">
     Title:
     <input th:field="*{title}"/>
     <br/>
     Body:
     <input th:field="*{body}"/>
     <br/>
-    <input type="submit"/>
+    <input type="submit" value="Edit Post"/>
 </form>
 <footer th:replace="fragments :: footer"/>
 </body>
