@@ -16,8 +16,7 @@ public class Post {
     private String body;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Post post;
+    private User user;
 
     public Post(String title, String body) {
         this.title = title;
