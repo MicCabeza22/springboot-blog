@@ -2,6 +2,7 @@ package com.codeup.springbootblog;
 
 import com.codeup.springbootblog.daos.UsersRepository;
 import com.codeup.springbootblog.models.Post;
+import com.codeup.springbootblog.models.User;
 import com.codeup.springbootblog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,9 @@ public class PostsController {
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
     public String viewIndividualPost(@PathVariable long id, Model model) {
         Post post = service.findOne(id);
+        User user = usersDao.findOne(id);
         model.addAttribute("post", post);
+        model.addAttribute("user", user);
         return "posts/show";
     }
 
@@ -39,6 +42,8 @@ public class PostsController {
 
     @PostMapping("/posts/create")
     public String createNewPost(@ModelAttribute Post post) {
+        User user = usersDao.findOne(1L);
+        post = new Post(post.getTitle(), post.getBody(), user);
         service.save(post);
         return "redirect:/posts";
     }
@@ -54,6 +59,12 @@ public class PostsController {
     public String editPost(@PathVariable long id, @ModelAttribute Post post) {
         post.setId(id);
         service.save(post);
+        return "redirect:/posts";
+    }
+
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id) {
+        service.delete(id);
         return "redirect:/posts";
     }
 }
