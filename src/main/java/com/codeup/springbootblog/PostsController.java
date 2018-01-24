@@ -28,7 +28,7 @@ public class PostsController {
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
     public String viewIndividualPost(@PathVariable long id, Model model) {
         Post post = service.findOne(id);
-        User user = usersDao.findOne(id);
+        User user = post.getUser();
         model.addAttribute("post", post);
         model.addAttribute("user", user);
         return "posts/show";
@@ -42,7 +42,7 @@ public class PostsController {
 
     @PostMapping("/posts/create")
     public String createNewPost(@ModelAttribute Post post) {
-        User user = usersDao.findOne(1L);
+        User user = usersDao.findOne(2L);
         post = new Post(post.getTitle(), post.getBody(), user);
         service.save(post);
         return "redirect:/posts";
