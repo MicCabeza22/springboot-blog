@@ -1,5 +1,6 @@
 package com.codeup.springbootblog;
 
+import com.codeup.springbootblog.daos.UsersRepository;
 import com.codeup.springbootblog.models.Post;
 import com.codeup.springbootblog.services.PostService;
 import org.springframework.stereotype.Controller;
@@ -9,9 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PostsController {
     private PostService service;
+    private final UsersRepository usersDao;
 
-    public PostsController(PostService service) {
+    public PostsController(PostService service, UsersRepository usersDao) {
         this.service = service;
+        this.usersDao = usersDao;
     }
 
     @GetMapping("/posts")
