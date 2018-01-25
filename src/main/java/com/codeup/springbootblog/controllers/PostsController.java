@@ -1,6 +1,6 @@
-package com.codeup.springbootblog;
+package com.codeup.springbootblog.controllers;
 
-import com.codeup.springbootblog.daos.UsersRepository;
+import com.codeup.springbootblog.repositories.UsersRepository;
 import com.codeup.springbootblog.models.Post;
 import com.codeup.springbootblog.models.User;
 import com.codeup.springbootblog.services.PostService;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostsController {
-    private PostService service;
-    private final UsersRepository usersDao;
+    private final PostService service;
+    private final UsersRepository usersRepository;
 
-    public PostsController(PostService service, UsersRepository usersDao) {
+    public PostsController(PostService service, UsersRepository usersRepository) {
         this.service = service;
-        this.usersDao = usersDao;
+        this.usersRepository = usersRepository;
     }
 
     @GetMapping("/posts")
@@ -42,7 +42,7 @@ public class PostsController {
 
     @PostMapping("/posts/create")
     public String createNewPost(@ModelAttribute Post post) {
-        User user = usersDao.findOne(2L);
+        User user = usersRepository.findOne(2L);
         post = new Post(post.getTitle(), post.getBody(), user);
         service.save(post);
         return "redirect:/posts";

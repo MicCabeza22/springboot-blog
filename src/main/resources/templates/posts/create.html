@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"/>
 <body>
-<header th:replace="fragments :: header-index"/>
 <nav th:replace="fragments :: navbar"/>
 <form action="/posts/create" method="post" th:object="${post}">
     Title:

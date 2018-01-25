@@ -1,4 +1,4 @@
-package com.codeup.springbootblog.daos;
+package com.codeup.springbootblog.repositories;
 
 import com.codeup.springbootblog.models.User;
 import org.springframework.data.repository.CrudRepository;

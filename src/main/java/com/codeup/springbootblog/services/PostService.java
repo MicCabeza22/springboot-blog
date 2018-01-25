@@ -1,6 +1,6 @@
 package com.codeup.springbootblog.services;
 
-import com.codeup.springbootblog.daos.PostsRepository;
+import com.codeup.springbootblog.repositories.PostsRepository;
 import com.codeup.springbootblog.models.Post;
 import org.springframework.stereotype.Service;
 
