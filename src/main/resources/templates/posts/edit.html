@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head"/>
+<head th:replace="fragments/head :: main-header('Edit a Post')"></head>
 <body>
-<nav th:replace="fragments :: navbar"/>
+<nav th:replace="fragments :: navbar"></nav>
 <form th:action="@{/posts/{id}/edit(id=${post.id})}" method="post" th:object="${post}">
     Title:
     <input th:field="*{title}"/>
@@ -15,6 +15,6 @@
         <input type="submit" value="Delete Post"/>
     </form>
 </form>
-<footer th:replace="fragments :: footer"/>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

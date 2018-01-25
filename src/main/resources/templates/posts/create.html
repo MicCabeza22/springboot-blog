@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head"/>
+<head th:replace="fragments/head :: main-header('Create a Post')"></head>
 <body>
-<nav th:replace="fragments :: navbar"/>
+<nav th:replace="fragments/navbar :: navbar"></nav>
 <form action="/posts/create" method="post" th:object="${post}">
     Title:
     <input th:field="*{title}"/>
@@ -12,6 +12,6 @@
     <br/>
     <input type="submit"/>
 </form>
-<footer th:replace="fragments :: footer"/>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
